@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>理一21組(2026) 素数アイス</title>
     <style>
         :root {
@@ -20,6 +20,7 @@
             background: #fffef0; 
             padding: 20px;
             color: #333;
+            touch-action: manipulation;
         }
 
         h1 {
@@ -28,7 +29,6 @@
             margin: 10px 0 20px;
         }
 
-        /* テンキーコンテナ */
         .keypad-container { 
             width: 100%;
             max-width: 300px; 
@@ -37,6 +37,7 @@
             border-radius: 20px; 
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             border: 2px solid #e0e0e0;
+            touch-action: manipulation;
         }
 
         #display { 
@@ -44,7 +45,6 @@
             box-sizing: border-box; 
             height: 65px; 
             text-align: right; 
-            font-size: 2.2rem; 
             margin-bottom: 15px; 
             padding: 10px; 
             border: 3px solid #eee; 
@@ -52,6 +52,7 @@
             background: #f9f9f9;
             outline: none;
             color: #444;
+            font-size: 2.2rem !important;
         }
 
         .keypad { 
@@ -71,6 +72,8 @@
             background: #fff; 
             transition: all 0.1s;
             box-shadow: 0 3px 0 #ddd;
+            user-select: none;
+            -webkit-user-select: none;
         }
 
         .keypad button:active, .keypad button.active { 
@@ -94,9 +97,9 @@
             border-radius: 15px; 
             cursor: pointer; 
             box-shadow: 0 3px 0 #546e7a;
+            user-select: none;
         }
 
-        /* モーダル */
         .modal { 
             display: none; 
             position: fixed; 
@@ -112,7 +115,6 @@
         }
         .overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 5; backdrop-filter: blur(4px); }
 
-        /* 取り消しボタンの特別スタイル */
         .cancel-btn {
             flex: 1; 
             padding: 15px; 
@@ -122,13 +124,8 @@
             border-radius: 10px; 
             font-weight: bold; 
             cursor: pointer;
-            transition: background 0.2s;
-        }
-        .cancel-btn:hover {
-            background: #fff5f5;
         }
 
-        /* テーブル */
         .history-section { width: 100%; max-width: 900px; margin-top: 40px; overflow-x: auto; }
         table { border-collapse: collapse; width: 100%; background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 15px rgba(0,0,0,0.05); }
         th, td { border: 1px solid #eee; padding: 12px 6px; text-align: center; font-size: 0.9rem; }
@@ -195,7 +192,8 @@
 
     <script>
         let ice_list = ["a", "b", "c", "d", "e"];
-        let ice_prc = [1, 2, 3, 4, 5];
+        // デフォルト価格を変更
+        let ice_prc = [10000, 1000, 100, 10, 1];
         let prm = [2, 3, 5, 7, 11];
         let rec = []; 
 
