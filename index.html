@@ -134,11 +134,12 @@
     </div>
 
     <script>
-        let ice_list = ["a", "b", "c", "d", "e"];
-        let ice_prc = [10000, 1000, 100, 10, 1];
+        let ice_list = ["バニラ", "いちご", "チョコ", "オレンジ", "マンゴー"];
+        // デフォルト価格をすべて100円に変更
+        let ice_prc = [100, 100, 100, 100, 100];
         let prm = [2, 3, 5, 7, 11];
-        let disc_unit = 3; // 割引単位
-        let disc_val = 50; // 割引額
+        let disc_unit = 3; 
+        let disc_val = 50; 
         let rec = []; 
 
         document.addEventListener('keydown', (e) => {
@@ -165,7 +166,7 @@
         function anl(n) {
             let num = parseInt(n);
             if (isNaN(num) || num <= 0) return [];
-            let naiyou = [0, 0, 0, 0, 0, 0, 0]; // [a,b,c,d,e, 合計金額, 合計個数]
+            let naiyou = [0, 0, 0, 0, 0, 0, 0, 0]; 
             let totalCount = 0;
             let totalPrice = 0;
             for (let i = 0; i < prm.length; i++) {
@@ -178,11 +179,10 @@
             }
             if (num !== 1) return [];
             
-            // 割引計算
             let discount = Math.floor(totalCount / disc_unit) * disc_val;
             naiyou[5] = totalPrice - discount;
             naiyou[6] = totalCount;
-            naiyou[7] = discount; // 割引額を保持
+            naiyou[7] = discount;
             return naiyou;
         }
 
@@ -216,7 +216,6 @@
                 const hhmmss = String(now.getHours()).padStart(2, '0') + ":" + String(now.getMinutes()).padStart(2, '0') + ":" + String(now.getSeconds()).padStart(2, '0');
                 const timeStr = `${mmdd} ${hhmmss}`;
                 
-                // 履歴保存形式: [a, b, c, d, e, 支払金額, 割引額, 日時]
                 const recordEntry = [
                     currentOrderNaiyou[0], currentOrderNaiyou[1], currentOrderNaiyou[2], 
                     currentOrderNaiyou[3], currentOrderNaiyou[4], currentOrderNaiyou[5], 
@@ -239,19 +238,19 @@
             headHtml += "<th>割引</th><th>金額</th></tr>";
             head.innerHTML = headHtml;
 
-            let colTotals = new Array(ice_list.length + 2).fill(0); // [a,b,c,d,e, 割引, 金額]
+            let colTotals = new Array(ice_list.length + 2).fill(0);
 
             let bodyHtml = "";
             rec.forEach(row => {
                 bodyHtml += "<tr>";
-                bodyHtml += `<td class="time-col">${row[7]}</td>`; // 日時
-                for(let i=0; i<5; i++) { // a-e
+                bodyHtml += `<td class="time-col">${row[7]}</td>`;
+                for(let i=0; i<5; i++) {
                     bodyHtml += `<td>${row[i]}</td>`;
                     colTotals[i] += row[i];
                 }
-                bodyHtml += `<td class="discount-text">${row[6]}</td>`; // 割引
+                bodyHtml += `<td class="discount-text">${row[6]}</td>`;
                 colTotals[5] += row[6];
-                bodyHtml += `<td>${row[5]}</td>`; // 支払金額
+                bodyHtml += `<td>${row[5]}</td>`;
                 colTotals[6] += row[5];
                 bodyHtml += "</tr>";
             });
