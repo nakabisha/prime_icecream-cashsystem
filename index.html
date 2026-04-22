@@ -9,6 +9,7 @@
             --primary-color: #4caf50;
             --danger-color: #f44336;
             --setting-color: #78909c;
+            --discount-color: #e91e63;
         }
         
         body { 
@@ -23,108 +24,43 @@
             touch-action: manipulation;
         }
 
-        h1 {
-            color: #2e7d32;
-            font-size: 1.5rem;
-            margin: 10px 0 20px;
-        }
+        h1 { color: #2e7d32; font-size: 1.5rem; margin: 10px 0 20px; }
 
         .keypad-container { 
-            width: 100%;
-            max-width: 300px; 
-            background: #fff; 
-            padding: 15px; 
-            border-radius: 20px; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            border: 2px solid #e0e0e0;
-            touch-action: manipulation;
+            width: 100%; max-width: 300px; background: #fff; padding: 15px; border-radius: 20px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1); border: 2px solid #e0e0e0; touch-action: manipulation;
         }
 
         #display { 
-            width: 100%; 
-            box-sizing: border-box; 
-            height: 65px; 
-            text-align: right; 
-            margin-bottom: 15px; 
-            padding: 10px; 
-            border: 3px solid #eee; 
-            border-radius: 12px; 
-            background: #f9f9f9;
-            outline: none;
-            color: #444;
-            font-size: 2.2rem !important;
+            width: 100%; box-sizing: border-box; height: 65px; text-align: right; margin-bottom: 15px; 
+            padding: 10px; border: 3px solid #eee; border-radius: 12px; background: #f9f9f9;
+            outline: none; color: #444; font-size: 2.2rem !important;
         }
 
-        .keypad { 
-            display: grid; 
-            grid-template-columns: repeat(3, 1fr); 
-            gap: 12px; 
-        }
-
+        .keypad { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
         .keypad button { 
-            aspect-ratio: 1 / 1; 
-            width: 100%;
-            font-size: 1.6rem; 
-            font-weight: bold;
-            cursor: pointer; 
-            border: 1px solid #f0f0f0; 
-            border-radius: 15px; 
-            background: #fff; 
-            transition: all 0.1s;
-            box-shadow: 0 3px 0 #ddd;
-            user-select: none;
-            -webkit-user-select: none;
+            aspect-ratio: 1 / 1; width: 100%; font-size: 1.6rem; font-weight: bold; cursor: pointer; 
+            border: 1px solid #f0f0f0; border-radius: 15px; background: #fff; transition: all 0.1s;
+            box-shadow: 0 3px 0 #ddd; user-select: none; -webkit-user-select: none;
         }
-
-        .keypad button:active, .keypad button.active { 
-            transform: translateY(3px);
-            box-shadow: none;
-            background: #f0f0f0; 
-        }
+        .keypad button:active, .keypad button.active { transform: translateY(3px); box-shadow: none; background: #f0f0f0; }
         .keypad .enter { background: var(--primary-color); color: white; border: none; box-shadow: 0 4px 0 #388e3c; }
         .keypad .back { background: var(--danger-color); color: white; border: none; box-shadow: 0 4px 0 #d32f2f; }
 
         .settings-btn { 
-            width: 100%;
-            max-width: 330px;
-            margin-top: 25px;
-            padding: 15px; 
-            font-size: 1rem; 
-            font-weight: bold;
-            color: white;
-            background: var(--setting-color); 
-            border: none; 
-            border-radius: 15px; 
-            cursor: pointer; 
-            box-shadow: 0 3px 0 #546e7a;
-            user-select: none;
+            width: 100%; max-width: 330px; margin-top: 25px; padding: 15px; font-size: 1rem; font-weight: bold;
+            color: white; background: var(--setting-color); border: none; border-radius: 15px; cursor: pointer; 
+            box-shadow: 0 3px 0 #546e7a; user-select: none;
         }
 
         .modal { 
-            display: none; 
-            position: fixed; 
-            top: 50%; left: 50%; 
-            transform: translate(-50%, -50%); 
-            background: white; 
-            padding: 25px; 
-            border-radius: 20px; 
-            box-shadow: 0 0 50px rgba(0,0,0,0.3); 
-            z-index: 10; 
-            width: 90%; 
-            max-width: 380px; 
+            display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); 
+            background: white; padding: 25px; border-radius: 20px; box-shadow: 0 0 50px rgba(0,0,0,0.3); 
+            z-index: 10; width: 90%; max-width: 380px; 
         }
         .overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 5; backdrop-filter: blur(4px); }
 
-        .cancel-btn {
-            flex: 1; 
-            padding: 15px; 
-            background: white; 
-            color: var(--danger-color); 
-            border: 2px solid var(--danger-color); 
-            border-radius: 10px; 
-            font-weight: bold; 
-            cursor: pointer;
-        }
+        .cancel-btn { flex: 1; padding: 15px; background: white; color: var(--danger-color); border: 2px solid var(--danger-color); border-radius: 10px; font-weight: bold; cursor: pointer; }
 
         .history-section { width: 100%; max-width: 900px; margin-top: 40px; overflow-x: auto; }
         table { border-collapse: collapse; width: 100%; background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 15px rgba(0,0,0,0.05); }
@@ -133,8 +69,10 @@
         
         .total-row { background: #fff3e0; font-weight: bold; color: #e65100; }
         .time-col { color: #888; font-size: 0.75rem; white-space: nowrap; }
+        .discount-text { color: var(--discount-color); font-weight: bold; }
 
-        .setting-input { width: 90%; padding: 8px; border: 1px solid #ddd; border-radius: 6px; text-align: center; font-size: 1rem; }
+        .setting-input { width: 80%; padding: 8px; border: 1px solid #ddd; border-radius: 6px; text-align: center; font-size: 1rem; }
+        .discount-setting-area { margin-top: 15px; padding: 10px; background: #fce4ec; border-radius: 10px; font-size: 0.9rem; }
     </style>
 </head>
 <body>
@@ -159,7 +97,7 @@
         </div>
     </div>
 
-    <button class="settings-btn" onclick="openSettings()">⚙ メニュー・価格設定</button>
+    <button class="settings-btn" onclick="openSettings()">⚙ メニュー・割引設定</button>
 
     <div id="confirmModal" class="modal">
         <h3 style="margin-top:0; color:var(--primary-color);">注文内容の確認</h3>
@@ -171,11 +109,16 @@
     </div>
 
     <div id="settingsModal" class="modal">
-        <h3 style="margin-top:0">商品設定</h3>
+        <h3 style="margin-top:0">商品・価格設定</h3>
         <table id="settingsTable">
             <thead><tr><th>商品名</th><th>単価</th></tr></thead>
             <tbody id="settingsBody"></tbody>
         </table>
+        <div class="discount-setting-area">
+            <strong>まとめ買い割引</strong><br>
+            合計 <input type="number" id="edit_disc_unit" style="width:40px; text-align:center;" value="3"> 個につき<br>
+            <input type="number" id="edit_disc_val" style="width:60px; text-align:center;" value="50"> 円割引
+        </div>
         <button onclick="saveSettings()" style="width:100%; padding:15px; margin-top:15px; background:var(--primary-color); color:white; border:none; border-radius:10px; font-weight:bold; cursor:pointer;">保存して閉じる</button>
     </div>
 
@@ -192,9 +135,10 @@
 
     <script>
         let ice_list = ["a", "b", "c", "d", "e"];
-        // デフォルト価格を変更
         let ice_prc = [10000, 1000, 100, 10, 1];
         let prm = [2, 3, 5, 7, 11];
+        let disc_unit = 3; // 割引単位
+        let disc_val = 50; // 割引額
         let rec = []; 
 
         document.addEventListener('keydown', (e) => {
@@ -221,15 +165,25 @@
         function anl(n) {
             let num = parseInt(n);
             if (isNaN(num) || num <= 0) return [];
-            let naiyou = [0, 0, 0, 0, 0, 0];
+            let naiyou = [0, 0, 0, 0, 0, 0, 0]; // [a,b,c,d,e, 合計金額, 合計個数]
+            let totalCount = 0;
+            let totalPrice = 0;
             for (let i = 0; i < prm.length; i++) {
                 while (num % prm[i] === 0) {
                     naiyou[i]++;
-                    naiyou[5] += ice_prc[i];
+                    totalPrice += ice_prc[i];
+                    totalCount++;
                     num = num / prm[i];
                 }
             }
-            return num === 1 ? naiyou : [];
+            if (num !== 1) return [];
+            
+            // 割引計算
+            let discount = Math.floor(totalCount / disc_unit) * disc_val;
+            naiyou[5] = totalPrice - discount;
+            naiyou[6] = totalCount;
+            naiyou[7] = discount; // 割引額を保持
+            return naiyou;
         }
 
         function submitOrder() {
@@ -242,11 +196,14 @@
                 return;
             }
             currentOrderNaiyou = result;
-            let html = `<table><tr><th>項目</th><th>数量</th></tr>`;
+            let html = `<table style="width:100%"><tr><th>項目</th><th>数量</th></tr>`;
             for(let i=0; i<ice_list.length; i++) {
                 if(result[i] > 0) html += `<tr><td>${ice_list[i]}</td><td>${result[i]}</td></tr>`;
             }
-            html += `<tr style="background:#f1f8e9"><td><strong>合計金額</strong></td><td><strong>${result[5]} 円</strong></td></tr></table>`;
+            html += `<tr><td>合計個数</td><td>${result[6]} 個</td></tr>`;
+            if(result[7] > 0) html += `<tr class="discount-text"><td>割引</td><td>-${result[7]} 円</td></tr>`;
+            html += `<tr style="background:#f1f8e9"><td><strong>支払金額</strong></td><td><strong>${result[5]} 円</strong></td></tr></table>`;
+            
             document.getElementById('orderResult').innerHTML = html;
             document.getElementById('confirmModal').style.display = 'block';
             document.getElementById('overlay').style.display = 'block';
@@ -256,13 +213,15 @@
             if (isConfirmed && currentOrderNaiyou) {
                 const now = new Date();
                 const mmdd = String(now.getMonth() + 1).padStart(2, '0') + String(now.getDate()).padStart(2, '0');
-                const hhmmss = 
-                    String(now.getHours()).padStart(2, '0') + ":" + 
-                    String(now.getMinutes()).padStart(2, '0') + ":" + 
-                    String(now.getSeconds()).padStart(2, '0');
-                
+                const hhmmss = String(now.getHours()).padStart(2, '0') + ":" + String(now.getMinutes()).padStart(2, '0') + ":" + String(now.getSeconds()).padStart(2, '0');
                 const timeStr = `${mmdd} ${hhmmss}`;
-                const recordEntry = [...currentOrderNaiyou, timeStr];
+                
+                // 履歴保存形式: [a, b, c, d, e, 支払金額, 割引額, 日時]
+                const recordEntry = [
+                    currentOrderNaiyou[0], currentOrderNaiyou[1], currentOrderNaiyou[2], 
+                    currentOrderNaiyou[3], currentOrderNaiyou[4], currentOrderNaiyou[5], 
+                    currentOrderNaiyou[7], timeStr
+                ];
                 rec.push(recordEntry);
                 updateHistory();
             }
@@ -277,28 +236,30 @@
             
             let headHtml = "<tr><th>日時</th>";
             ice_list.forEach(name => headHtml += `<th>${name}</th>`);
-            headHtml += "<th>合計(円)</th></tr>";
+            headHtml += "<th>割引</th><th>金額</th></tr>";
             head.innerHTML = headHtml;
 
-            let columnTotals = new Array(ice_list.length + 1).fill(0);
+            let colTotals = new Array(ice_list.length + 2).fill(0); // [a,b,c,d,e, 割引, 金額]
 
             let bodyHtml = "";
             rec.forEach(row => {
                 bodyHtml += "<tr>";
-                bodyHtml += `<td class="time-col">${row[6]}</td>`;
-                for(let i=0; i<6; i++) {
+                bodyHtml += `<td class="time-col">${row[7]}</td>`; // 日時
+                for(let i=0; i<5; i++) { // a-e
                     bodyHtml += `<td>${row[i]}</td>`;
-                    columnTotals[i] += row[i];
+                    colTotals[i] += row[i];
                 }
+                bodyHtml += `<td class="discount-text">${row[6]}</td>`; // 割引
+                colTotals[5] += row[6];
+                bodyHtml += `<td>${row[5]}</td>`; // 支払金額
+                colTotals[6] += row[5];
                 bodyHtml += "</tr>";
             });
-            body.innerHTML = bodyHtml || "<tr><td colspan='8'>注文待ち...</td></tr>";
+            body.innerHTML = bodyHtml || "<tr><td colspan='9'>注文待ち...</td></tr>";
 
             if(rec.length > 0) {
                 let footHtml = `<tr class="total-row"><td>総計</td>`;
-                columnTotals.forEach(val => {
-                    footHtml += `<td>${val}</td>`;
-                });
+                colTotals.forEach(val => footHtml += `<td>${val}</td>`);
                 footHtml += "</tr>";
                 foot.innerHTML = footHtml;
             } else {
@@ -315,6 +276,8 @@
                     <td><input type="number" id="edit_p_${i}" class="setting-input" value="${ice_prc[i]}"></td>
                 </tr>`;
             }
+            document.getElementById('edit_disc_unit').value = disc_unit;
+            document.getElementById('edit_disc_val').value = disc_val;
             document.getElementById('settingsModal').style.display = 'block';
             document.getElementById('overlay').style.display = 'block';
         }
@@ -324,6 +287,8 @@
                 ice_list[i] = document.getElementById(`edit_l_${i}`).value;
                 ice_prc[i] = parseInt(document.getElementById(`edit_p_${i}`).value) || 0;
             }
+            disc_unit = parseInt(document.getElementById('edit_disc_unit').value) || 1;
+            disc_val = parseInt(document.getElementById('edit_disc_val').value) || 0;
             updateHistory();
             closeModals();
         }
